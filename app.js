@@ -29,7 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.connect(
-  "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority/secretDB",
+  "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -177,7 +177,7 @@ app
 app.get("/auth/facebook", passport.authenticate("facebook"));
 
 app.get(
-  "/secretDB/auth/facebook/secrets",
+  "/auth/facebook/secrets",
   passport.authenticate("facebook", { failureRedirect: "/login" }),
   function (req, res) {
     res.redirect("/secrets");

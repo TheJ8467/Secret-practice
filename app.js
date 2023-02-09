@@ -28,10 +28,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://127.0.0.1:27017", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority/secretDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const userSchema = new mongoose.Schema({
   email: String,
@@ -62,7 +65,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/secrets",
+      callbackURL:
+        "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority/secretDB/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -78,7 +82,8 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/facebook/secrets",
+      callbackURL:
+        "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority/secretDB/auth/facebook/secrets",
       enableProof: true,
     },
     function (accessToken, refreshToken, profile, cb) {

@@ -174,10 +174,10 @@ app
     }
   );
 
-app.get("/auth/facebook", passport.authenticate("facebook"));
+app.get("/secretDB/auth/facebook", passport.authenticate("facebook"));
 
 app.get(
-  "/auth/facebook/secrets",
+  "/secretDB/auth/facebook/secrets",
   passport.authenticate("facebook", { failureRedirect: "/login" }),
   function (req, res) {
     res.redirect("/secrets");

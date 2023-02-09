@@ -66,7 +66,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL:
-        "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority/secretDB/auth/google/secrets",
+        "https://jealous-pig-housecoat.cyclic.app/secretDB/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -83,7 +83,7 @@ passport.use(
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
       callbackURL:
-        "mongodb+srv://DeJ:910828@cluster0.98hz9ds.mongodb.net/?retryWrites=true&w=majority/secretDB/auth/facebook/secrets",
+        "https://jealous-pig-housecoat.cyclic.app/secretDB/auth/facebook/secrets",
       enableProof: true,
     },
     function (accessToken, refreshToken, profile, cb) {
